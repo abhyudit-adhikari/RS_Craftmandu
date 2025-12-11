@@ -24,7 +24,7 @@ const HomeProductCard = () => {
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
     toast.success("Deleted from Cart");
-  };
+  };  
 
   const sortedProducts = getAllProduct.sort((a, b) => new Date(b.date) - new Date(a.date));
   const newestProducts = sortedProducts.slice(0, 8);
