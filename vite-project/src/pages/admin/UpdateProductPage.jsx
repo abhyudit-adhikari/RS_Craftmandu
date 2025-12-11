@@ -5,7 +5,7 @@ import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 
 
 

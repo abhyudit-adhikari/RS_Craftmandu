@@ -4,7 +4,7 @@ import OrderDetail from '../../components/admin/OrderDetail';
 import UserDetail from '../../components/admin/UserDetail';
 import { useContext } from 'react';
 import myContext from '../../context/myContext';
-import Layout from '../../components/layout/Layout';
+import Layout from '../../components/layout/layout';
 
 const AdminDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));

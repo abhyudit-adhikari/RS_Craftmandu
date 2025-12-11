@@ -8,7 +8,7 @@ import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where, getDocs  } from "firebase/firestore";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import myContext from "../../context/myContext";
 import { useParams } from "react-router";
 // FIX: Changed 'FirebaseConfig' to 'firebaseConfig'

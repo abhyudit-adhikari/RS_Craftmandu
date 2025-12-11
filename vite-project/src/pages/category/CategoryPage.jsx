@@ -1,6 +1,6 @@
 
 import { useContext, useEffect } from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import { useNavigate, useParams } from "react-router-dom";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";

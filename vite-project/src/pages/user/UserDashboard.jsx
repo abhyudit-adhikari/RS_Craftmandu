@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";
 import '@fortawesome/fontawesome-free/css/all.min.css';

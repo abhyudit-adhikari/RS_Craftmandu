@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { fireDB } from "../../firebase/firebaseConfig";
 import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const AddProductPage = () => {

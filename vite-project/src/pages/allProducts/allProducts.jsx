@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import { useContext, useEffect, useState } from "react";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";

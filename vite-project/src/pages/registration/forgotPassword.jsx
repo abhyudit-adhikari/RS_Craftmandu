@@ -1,6 +1,6 @@
 
 import { sendPasswordResetEmail } from "firebase/auth";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/layout/layout";
 import { auth } from "../../firebase/FirebaseConfig";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
