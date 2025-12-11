@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import toast from "react-hot-toast";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, fireDB } from "../../firebase/FirebaseConfig";
+import { auth, fireDB } from "../../firebase/firebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where, getDocs  } from "firebase/firestore";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";

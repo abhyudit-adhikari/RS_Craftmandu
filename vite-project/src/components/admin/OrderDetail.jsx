@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import myContext from "../../context/myContext";
-import { fireDB } from "../../firebase/FirebaseConfig";
+import { fireDB } from "../../firebase/firebaseConfig";
 import { doc, updateDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
 

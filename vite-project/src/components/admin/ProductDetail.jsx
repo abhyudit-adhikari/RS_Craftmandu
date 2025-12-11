@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import Loader from "../loader/Loader";
 import { deleteDoc, doc } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+import { fireDB } from "../../firebase/firebaseConfig";
 import toast from "react-hot-toast";
 
 const ProductDetail = () => {
