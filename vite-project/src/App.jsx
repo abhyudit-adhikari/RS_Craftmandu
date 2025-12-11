@@ -63,7 +63,7 @@ const App = () => {
           </ProtectedRouteForAdmin>
           }/>
 
-          <Route path="/aboutus" element = {<AboutUS/>}/>
+          <Route path="/about" element = {<AboutUS/>}/>
           <Route path="/category/:categoryname" element={<CategoryPage/>} />
           <Route path="/forgot-password" element = {<Forgot/>}/>
         </Routes>

@@ -79,6 +79,11 @@ const Navbar = () => {
 
   const navListRight = (
     <ul className="flex flex-row ml-5 lg:flex-row lg:space-x-10 text-black font-medium text-md">
+      <li>
+        <Link to="/about" className="hover:text-[#dd3333] transition-colors duration-200">
+          About Us
+        </Link>
+      </li>
       {user && (
         <li className="relative  cursor-pointer ">
           <i
