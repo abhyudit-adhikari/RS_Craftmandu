@@ -47,17 +47,20 @@ const HomeProductCard = () => {
           <div className="flex justify-center">{loading && <Loader />}</div>
           <div className="flex flex-wrap -m-4">
 
-            
             {newestProducts.map((item, index) => {
-              const { id, title, price, productImageUrl } = item;
+              // We keep 'price' in destructuring just in case, but won't display it
+              const { id, title, productImageUrl, productImageUrls } = item;
+              
+              // Handle new array logic for thumbnail (Backward compatibility)
+              const displayImage = productImageUrls ? productImageUrls[0] : productImageUrl;
+
               return (
                 <div key={index}
                 onClick={() => navigate(`/productinfo/${id}`)} className="p-4 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer transform transition duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:scale-105">
                     <img
-                      
                       className="lg:h-80 h-96 w-full object-cover transition-all duration-300 ease-in-out"
-                      src={productImageUrl}
+                      src={displayImage}
                       alt="image"
                     />
                     <div className="p-6">
@@ -67,9 +70,8 @@ const HomeProductCard = () => {
                       <h1 className="title-font text-lg font-medium text-[#dd3333] mb-3">
                         {title.substring(0, 25)}
                       </h1>
-                      <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                        Rs. {price}
-                      </h1>
+                      
+                      {/* PRICE REMOVED FROM HERE */}
 
                       <div className="flex justify-center">
                         {cartItems.some((p) => p.id === item.id) ? (

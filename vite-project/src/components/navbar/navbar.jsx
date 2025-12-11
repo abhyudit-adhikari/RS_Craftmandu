@@ -4,7 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+import { fireDB } from "../../firebase/firebaseConfig";
 import toast from "react-hot-toast";
 
 const Navbar = () => {

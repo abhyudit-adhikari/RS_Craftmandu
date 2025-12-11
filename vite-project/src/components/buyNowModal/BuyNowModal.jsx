@@ -28,7 +28,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
         onClick={handleOpen}
         className=" playfair w-full px-4 py-3 text-center text-gray-100 bg-[#dd3333] border border-transparent dark:border-gray-700 hover:border-[#ff4444] hover:text-white hover:bg-[#ff4444] rounded-xl"
       >
-        Buy now
+        Confirm Order
       </Button>
       <Dialog open={open} handler={handleOpen} className=" bg-[#f9f9f9]">
         <DialogBody className="">

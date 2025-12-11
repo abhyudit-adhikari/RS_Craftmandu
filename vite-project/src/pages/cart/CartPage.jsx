@@ -5,7 +5,8 @@ import { decrementQuantity, deleteFromCart, incrementQuantity } from "../../redu
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+// FIX: Changed 'FirebaseConfig' to 'firebaseConfig' to fix casing error
+import { fireDB } from "../../firebase/firebaseConfig"; 
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 import { Navigate } from "react-router";
 import { v4 as uuidv4 } from 'uuid';
@@ -27,12 +28,8 @@ const CartPage = () => {
         dispatch(decrementQuantity(id));
     };
 
-    // const cartQuantity = cartItems.length;
-
+    // Calculate total items only (Removed price total)
     const cartItemTotal = cartItems.map(item => item.quantity).reduce((prevValue, currValue) => prevValue + currValue, 0);
-
-    const cartTotal = cartItems.map(item => item.price * item.quantity).reduce((prevValue, currValue) => prevValue + currValue, 0);
-
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -112,13 +109,17 @@ const CartPage = () => {
 
                                     <>
                                         {cartItems.map((item, index) => {
-                                            const { id, title, price, productImageUrl, quantity, category } = item
+                                            const { id, title, productImageUrl, productImageUrls, quantity, category } = item
+                                            
+                                            // Handle multiple images logic for thumbnail
+                                            const displayImage = productImageUrls ? productImageUrls[0] : productImageUrl;
+
                                             return (
                                                 <div key={index} className="">
                                                     <li className="flex py-6 sm:py-6 ">
                                                         <div className="flex-shrink-0">
                                                             <img
-                                                                src={productImageUrl}
+                                                                src={displayImage}
                                                                 alt="img"
                                                                 className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
                                                             />
@@ -137,11 +138,7 @@ const CartPage = () => {
                                                                     <div className="mt-1 flex text-sm">
                                                                         <p className="text-sm text-gray-500">{category}</p>
                                                                     </div>
-                                                                    <div className="mt-1 flex items-end">
-                                                                        <p className="text-sm font-medium text-gray-900">
-                                                                            Rs. {price}
-                                                                        </p>
-                                                                    </div>
+                                                                    {/* PRICE REMOVED FROM HERE */}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -155,7 +152,7 @@ const CartPage = () => {
                                                                 type="text"
                                                                 className="mx-1 h-7 w-9 rounded-md border text-center"
                                                                 value={quantity}
-                                                                
+                                                                readOnly
                                                             />
                                                             <button onClick={() => handleIncrement(id)} type="button" className="flex h-7 w-7 items-center justify-center">
                                                                 +
@@ -192,25 +189,13 @@ const CartPage = () => {
                             <div>
                                 <dl className=" space-y-1 px-2 py-4">
                                     <div className="flex items-center justify-between">
-                                        <dt className="text-sm text-gray-800">Price ({cartItemTotal} item(s))</dt>
-                                        <dd className="text-sm font-medium text-gray-900">Rs. {cartTotal}</dd>
+                                        <dt className="text-sm text-gray-800">Total Items</dt>
+                                        <dd className="text-sm font-medium text-gray-900">{cartItemTotal}</dd>
                                     </div>
-                                    <div className="flex items-center justify-between py-4">
-                                        <dt className="flex text-sm text-gray-800">
-                                            <span>Delivery Date</span>
-                                        </dt>
-                                        <dd className="text-sm font-medium text-gray-900">3rd December 2024</dd>
-                                    </div>
-                                    <div className="flex items-center justify-between py-1">
-                                        <dt className="flex text-sm text-gray-800">
-                                            <span>Delivery Charges</span>
-                                        </dt>
-                                        <dd className="text-sm font-medium text-green-700">Free</dd>
-                                    </div>
-                                    <div className="flex items-center justify-between border-y border-dashed py-4 ">
-                                        <dt className="text-base font-medium text-[#dd3333]">Total Amount</dt>
-                                        <dd className="text-base font-medium text-gray-900">Rs. {cartTotal}</dd>
-                                    </div>
+                                    
+                                    {/* PRICE TOTAL REMOVED */}
+                                    
+
                                 </dl>
                                 <div className="px-2 pb-4 font-medium text-green-700">
                                     <div className="flex gap-4 mb-6">
